@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Виджет SMED (600px)</title>
+<title>SMED: Переналадка за 8 минут</title>
 <style>
   :root {
     --bg-card: #ffffff;
@@ -31,15 +31,15 @@
     justify-content: center;
   }
 
-  /* Строгий контейнер 600px */
+  /* Строгий контейнер 800px */
   .game-widget {
-    width: 600px;
-    max-width: 600px;
+    width: 800px;
+    max-width: 800px;
     background: #ffffff;
     border-radius: 16px;
     border: 2px solid #e9ecef;
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    padding: 12px;
+    padding: 14px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -47,19 +47,19 @@
   /* Верхняя панель */
   .top-bar {
     display: grid;
-    grid-template-columns: 65px 1fr;
-    gap: 10px;
+    grid-template-columns: 78px 1fr;
+    gap: 12px;
     align-items: center;
     background: #fff9db;
     border: 2px dashed #fcc419;
     border-radius: 12px;
-    padding: 8px 10px;
-    margin-bottom: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
   }
 
   .chibi-svg {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
   }
 
   .chibi-bounce {
@@ -68,22 +68,22 @@
 
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    50% { transform: translateY(-7px); }
   }
 
   .speech-bubble {
-    font-size: 11.5px;
-    line-height: 1.3;
+    font-size: 12.5px;
+    line-height: 1.35;
   }
 
   .speech-title {
     font-weight: 800;
     color: #d6336c;
-    font-size: 12.5px;
+    font-size: 14px;
     margin-bottom: 2px;
   }
 
-  /* Шкала и показатели */
+  /* Шкала показателей */
   .stats-row {
     display: flex;
     justify-content: space-between;
@@ -91,18 +91,18 @@
     background: #f8f0fc;
     border: 1px solid #e599f7;
     border-radius: 8px;
-    padding: 4px 8px;
-    margin-top: 4px;
-    font-size: 11px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-size: 12px;
     font-weight: 700;
   }
 
   .time-badge {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 900;
     color: #d6336c;
     background: #fff;
-    padding: 1px 6px;
+    padding: 1px 8px;
     border-radius: 6px;
     border: 1px solid #faa2c1;
   }
@@ -114,15 +114,15 @@
   }
 
   .batch-info {
-    font-size: 10.5px;
+    font-size: 11.5px;
     color: #5f3dc4;
   }
 
   .helper-bar {
     text-align: center;
-    font-size: 11px;
+    font-size: 12px;
     color: #7950f2;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 600;
   }
 
@@ -130,10 +130,10 @@
   .cards-pool {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    min-height: 90px;
-    margin-bottom: 10px;
-    padding: 6px;
+    gap: 8px;
+    min-height: 100px;
+    margin-bottom: 12px;
+    padding: 8px;
     background: #f8f0fc;
     border-radius: 12px;
     border: 1px solid #eebefa;
@@ -141,14 +141,14 @@
 
   .smed-card {
     background: var(--bg-card);
-    border-radius: 8px;
-    padding: 6px 8px;
+    border-radius: 10px;
+    padding: 8px 10px;
     border: 1.5px solid #bac8ff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
     cursor: grab;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     transition: transform 0.15s, border-color 0.15s;
   }
 
@@ -175,28 +175,28 @@
   }
 
   .card-icon {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1;
     flex-shrink: 0;
   }
 
   .card-text {
-    font-size: 10.5px;
+    font-size: 11.5px;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   /* 3 корзины сброса */
   .drop-zones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+    gap: 8px;
   }
 
   .drop-zone {
-    border-radius: 10px;
-    padding: 6px 4px;
-    min-height: 160px;
+    border-radius: 12px;
+    padding: 8px 6px;
+    min-height: 185px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -213,52 +213,59 @@
   .zone-error { background: var(--err-red); border: 2px dashed var(--err-border); }
 
   .zone-header {
-    font-size: 11px;
+    font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 2px;
   }
 
   .zone-sub {
-    font-size: 9px;
+    font-size: 10px;
     opacity: 0.8;
-    margin-bottom: 6px;
-    line-height: 1.1;
+    margin-bottom: 8px;
+    line-height: 1.15;
   }
 
   .zone-items {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
   }
 
   .mini-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 6px;
-    padding: 4px 5px;
-    font-size: 9.5px;
+    padding: 5px 6px;
+    font-size: 10px;
     font-weight: 600;
     text-align: left;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    line-height: 1.15;
+    line-height: 1.2;
+    animation: popIn 0.3s ease;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
   }
 
   /* Экран победы */
   .victory-modal {
     display: none;
-    margin-top: 6px;
+    margin-top: 8px;
     background: #ebfbee;
     border: 2px solid #51cf66;
     border-radius: 12px;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
+    animation: popIn 0.4s ease;
   }
 
   .victory-title {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 900;
     color: #2b8a3e;
     margin-bottom: 4px;
@@ -267,23 +274,28 @@
   .exam-box {
     background: #fff;
     border-radius: 8px;
-    padding: 8px 10px;
-    margin: 6px 0;
+    padding: 10px 12px;
+    margin: 8px 0;
     text-align: left;
-    font-size: 11px;
+    font-size: 12px;
     border-left: 4px solid #339af0;
-    line-height: 1.35;
+    line-height: 1.4;
   }
 
   .btn-restart {
     background: #ff7396;
     color: white;
     border: none;
-    padding: 6px 16px;
-    font-size: 12px;
+    padding: 7px 20px;
+    font-size: 13px;
     font-weight: 800;
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .btn-restart:hover {
+    transform: scale(1.04);
   }
 </style>
 </head>
@@ -296,6 +308,8 @@
       <svg class="chibi-svg" id="chibiAvatar" viewBox="0 0 120 120">
         <rect x="38" y="80" width="44" height="32" rx="14" fill="#4dabf7"/>
         <path d="M48 80 L48 112 M72 80 L72 112" stroke="#1c7ed6" stroke-width="3"/>
+        <circle cx="48" cy="92" r="3" fill="#ffd43b"/>
+        <circle cx="72" cy="92" r="3" fill="#ffd43b"/>
         <circle cx="60" cy="56" r="30" fill="#ffe8cc"/>
         <ellipse cx="42" cy="63" rx="6" ry="3.5" fill="#ffa8a8" opacity="0.7"/>
         <ellipse cx="78" cy="63" rx="6" ry="3.5" fill="#ffa8a8" opacity="0.7"/>
@@ -314,12 +328,12 @@
 
     <div>
       <div class="speech-bubble">
-        <div class="speech-title" id="speechTitle">Сократим переналадку с 120 до <10 мин!</div>
-        <div id="speechText">Распредели карточки по 3 корзинам, чтобы убрать пропои и запустить мелкие партии.</div>
+        <div class="speech-title" id="speechTitle">Сократим переналадку со 120 до &lt;10 минут!</div>
+        <div id="speechText">Распредели карточки по 3 корзинам, чтобы убрать простои станка и запустить мелкие партии.</div>
       </div>
       <div class="stats-row">
-        <span>⏱ <span class="time-badge" id="timeDisplay">120 мин</span></span>
-        <span class="batch-info" id="batchDisplay">📦 Партия: 1000 шт.</span>
+        <span>⏱ Переналадка: <span class="time-badge" id="timeDisplay">120 мин</span></span>
+        <span class="batch-info" id="batchDisplay">📦 Партия: 1000 шт. (огромный запас)</span>
       </div>
     </div>
   </div>
@@ -334,33 +348,33 @@
   <!-- Корзины -->
   <div class="drop-zones">
     <div class="drop-zone zone-external" data-zone="external">
-      <div class="zone-header">🟢 ВНЕШНИЕ</div>
-      <div class="zone-sub">Делаем ДО остановки станка</div>
+      <div class="zone-header">🟢 ВНЕШНИЕ операции</div>
+      <div class="zone-sub">Делаем ЗАРАНЕЕ, пока станок работает</div>
       <div class="zone-items" id="items-external"></div>
     </div>
 
     <div class="drop-zone zone-internal" data-zone="internal">
-      <div class="zone-header">🟡 ВНУТРЕННИЕ</div>
-      <div class="zone-sub">При остановке (ускоренно)</div>
+      <div class="zone-header">🟡 ВНУТРЕННИЕ (быстрые)</div>
+      <div class="zone-sub">При остановке станка, но ускоренные</div>
       <div class="zone-items" id="items-internal"></div>
     </div>
 
     <div class="drop-zone zone-error" data-zone="mistake">
-      <div class="zone-header">🔴 ОШИБКИ</div>
-      <div class="zone-sub">Типичные промахи SMED</div>
+      <div class="zone-header">🔴 ОШИБКИ SMED</div>
+      <div class="zone-sub">Типичные промахи — в утиль!</div>
       <div class="zone-items" id="items-mistake"></div>
     </div>
   </div>
 
   <!-- Экран победы -->
   <div class="victory-modal" id="victoryModal">
-    <div class="victory-title">🎉 УРА! Переналадка = 8 минут!</div>
+    <div class="victory-title">🎉 УРА! Переналадка сокращена до 8 минут!</div>
     <div class="exam-box">
-      <b>🎓 Шпаргалка к экзамену:</b><br>
-      <b>SMED (Single Minute Exchange of Die)</b> — методика сокращения времени переналадки оборудования до однозначного числа минут (&lt;10 мин) за счёт разделения операций на внешние (до остановки) и внутренние (при остановке), их перевода и рационализации.<br>
-      <i>Эффект:</i> пропорционально уменьшает размер партии и запасы.
+      <b>🎓 Формулировка для экзамена:</b><br>
+      <b>SMED (Single Minute Exchange of Die)</b> — методика бережливого производства, сокращающая время переналадки оборудования до однозначного числа минут (&lt;10 мин) путём разделения операций на внешние и внутренние, перевода максимума внутренних во внешние и рационализации оставшихся.<br>
+      <i>Эффект:</i> сокращение переналадки пропорционально уменьшает размер партии и запасы, открывая путь к канбану и потоку единичных изделий.
     </div>
-    <button class="btn-restart" onclick="initGame()">🔄 Играть снова</button>
+    <button class="btn-restart" onclick="initGame()">🔄 Сыграть ещё раз</button>
   </div>
 </div>
 
@@ -368,59 +382,59 @@
   const cardsData = [
     {
       id: 1, icon: "🔥",
-      text: "Подвезти и разогреть новую пресс-форму заранее",
+      text: "Подвезти новую пресс-форму к станку и разогреть её заранее",
       zone: "external", saved: 16,
       feedbackTitle: "Верно! Перевод во внешнюю операцию 🌟",
       feedback: "Разогрев и транспортировка до остановки станка экономят время простоя!"
     },
     {
       id: 2, icon: "🛒",
-      text: "Собрать инструменты на тележке до остановки",
+      text: "Собрать инструменты и документы на тележке до остановки",
       zone: "external", saved: 14,
-      feedbackTitle: "Отлично! Внешняя операция! 📋",
-      feedback: "Поиск ключей при остановленном станке — чистая потеря."
+      feedbackTitle: "Отлично! Внешняя операция подготовлена! 📋",
+      feedback: "Поиск ключей и чертежей при остановленном станке — чистая потеря."
     },
     {
       id: 3, icon: "⚡",
-      text: "Заменить болты на быстросъёмные зажимы",
+      text: "Заменить резьбовые болты на быстросъёмные зажимы",
       zone: "internal", saved: 18,
       feedbackTitle: "Блестяще! Рационализация (Этап 4) 🔧",
-      feedback: "Смена оснастки выполняется при остановке, но быстросъём режет время в разы."
+      feedback: "Смена оснастки выполняется при остановке, но быстросъёмный крепёж сокращает её в разы."
     },
     {
       id: 4, icon: "🎯",
-      text: "Использовать фиксаторы (poka-yoke) вместо настроек",
+      text: "Использовать фиксаторы и упоры (poka-yoke) вместо регулировок",
       zone: "internal", saved: 16,
-      feedbackTitle: "В точку! Исключение регулировок! 📏",
-      feedback: "Фиксированные упоры убирают мучительные пробные прогоны."
+      feedbackTitle: "В точку! Исключение настроек! 📏",
+      feedback: "Фиксированные упоры и «нулевые позиции» убирают долгие пробные прогоны."
     },
     {
       id: 5, icon: "👯",
-      text: "Работать параллельно 2 операторам по стандарту",
+      text: "Менять оснастку параллельно двумя операторами по чек-листу",
       zone: "internal", saved: 12,
       feedbackTitle: "Синхронная работа как на пит-стопе! 🏎️",
-      feedback: "Два оператора по чек-листу делают работу в два раза быстрее."
+      feedback: "Два оператора по стандарту делают внутренние операции в два раза быстрее."
     },
     {
       id: 6, icon: "💸",
-      text: "Закупить быстрый крепёж без хронометража",
+      text: "Закупить быстросъёмный крепёж без хронометража",
       zone: "mistake", saved: 12,
-      feedbackTitle: "Ловушка №1! 🚨",
-      feedback: "Нельзя начинать с покупок без анализа хронометража 'как есть'."
+      feedbackTitle: "Ловушка №1 обезврежена! 🚨",
+      feedback: "Нельзя начинать с покупок без хронометража «как есть» — непонятно, что тормозит!"
     },
     {
       id: 7, icon: "🙈",
-      text: "Не считать время настройки частью переналадки",
+      text: "Не считать настройку и пробные прогоны частью переналадки",
       zone: "mistake", saved: 12,
-      feedbackTitle: "Заблуждение №2! 🛑",
-      feedback: "Переналадка длится до ПЕРВОЙ ГОДНОЙ детали новой партии!"
+      feedbackTitle: "Заблуждение №2 выявлено! 🛑",
+      feedback: "Переналадка длится до ПЕРВОЙ ГОДНОЙ детали новой партии, включая настройку!"
     },
     {
       id: 8, icon: "📉",
-      text: "Ускорить смену, но оставить гигантские партии",
+      text: "Ускорить переналадку, но оставить гигантский размер партии",
       zone: "mistake", saved: 12,
       feedbackTitle: "Ошибка внедрения! 📦",
-      feedback: "Без сокращения размера партии SMED не даёт экономического эффекта."
+      feedback: "Без сокращения партии и стандартизации SMED не даст экономического эффекта."
     }
   ];
 
@@ -459,14 +473,14 @@
     timeDisplayEl.textContent = currentTime + ' мин';
     if (currentTime <= 9) {
       timeDisplayEl.classList.add('goal-reached');
-      batchDisplayEl.textContent = '🚀 Партия: 1-10 шт.';
+      batchDisplayEl.textContent = '🚀 Партия: 1–10 шт. (поток открыт!)';
     } else if (currentTime <= 40) {
-      batchDisplayEl.textContent = '📦 Партия: 50 шт.';
+      batchDisplayEl.textContent = '📦 Партия: 50 шт. (малый запас)';
     } else if (currentTime <= 80) {
-      batchDisplayEl.textContent = '📦 Партия: 300 шт.';
+      batchDisplayEl.textContent = '📦 Партия: 300 шт. (средний запас)';
     } else {
       timeDisplayEl.classList.remove('goal-reached');
-      batchDisplayEl.textContent = '📦 Партия: 1000 шт.';
+      batchDisplayEl.textContent = '📦 Партия: 1000 шт. (огромный запас)';
     }
   }
 
@@ -483,8 +497,8 @@
 
     updateMeters();
     setChibiMood('normal');
-    speechTitleEl.textContent = 'Сократим переналадку с 120 до <10 мин!';
-    speechTextEl.textContent = 'Распредели карточки по 3 корзинам, чтобы убрать простой и запустить мелкие партии.';
+    speechTitleEl.textContent = 'Сократим переналадку со 120 до <10 минут!';
+    speechTextEl.textContent = 'Распредели карточки по 3 корзинам, чтобы убрать простои станка и запустить мелкие партии.';
 
     const shuffled = shuffle(cardsData);
     shuffled.forEach(card => {
@@ -558,8 +572,8 @@
       if (solvedCount === cardsData.length) {
         poolEl.style.display = 'none';
         victoryModalEl.style.display = 'block';
-        speechTitleEl.textContent = '🏆 Цель достигнута! 8 минут!';
-        speechTextEl.textContent = 'Вы уложились в однозначное число минут (Single-Digit Minute)!';
+        speechTitleEl.textContent = '🏆 Цель достигнута! Переналадка = 8 минут!';
+        speechTextEl.textContent = 'Однозначное число минут (Single-Digit Minute) достигнуто. Мелкие партии стали рентабельными!';
       }
     } else {
       setChibiMood('oops');
@@ -567,13 +581,13 @@
       void cardEl.offsetWidth;
       cardEl.classList.add('shake');
 
-      speechTitleEl.textContent = 'Подумай еще раз! 🤔';
+      speechTitleEl.textContent = 'Подумай ещё раз! 🤔';
       if (targetZone === 'external') {
-        speechTextEl.textContent = 'В «Внешние» переносим действия, выполняемые ДО остановки станка!';
+        speechTextEl.textContent = 'Во «Внешние» клади операции, которые выполняются ЗАРАНЕЕ, пока станок работает!';
       } else if (targetZone === 'internal') {
-        speechTextEl.textContent = 'Во «Внутренние» отправляем действия при остановке, но максимально ускоренные!';
+        speechTextEl.textContent = 'Во «Внутренние» — операции при остановке станка, но ускоренные (быстрый крепёж, упоры)!';
       } else {
-        speechTextEl.textContent = 'В «Ошибки» складываем типичные промахи при внедрении SMED!';
+        speechTextEl.textContent = 'В «Ошибки» отправляем типичные промахи при внедрении SMED!';
       }
     }
   }
